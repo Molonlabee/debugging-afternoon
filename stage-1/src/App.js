@@ -50,16 +50,16 @@ class App extends Component {
     }
   }
   render() {
-    const { products, showCart } = this.state;
+    const { products, showCart, cart } = this.state;
     return (
       <div className="App">
         <NavBar navigate={this.navigate} />
         <div className="main-container">
           {showCart ? (
-            <ShoppingCart cart={showCart} />
-          ) : (
-            <StoreFront products={products} />
-          )}
+           <ShoppingCart cart={cart} removeFromCart={this.removeFromCart} />
+           ) : (
+             <StoreFront products={products} addToCart={this.addToCart}/>
+           )}
         </div>
       </div>
     );
